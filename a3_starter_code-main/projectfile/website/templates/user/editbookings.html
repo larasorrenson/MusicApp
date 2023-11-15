@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5 mb-3">
+      <div class="col-md-12">
+        <div class="float-left">
+          <h1 class="mb-0">{{concert.EventName}}</h1>
+          <p>{{concert.EventDesc}}</p>
+        </div>
+  
+        <div class="float-right text-right">
+          <p class="mb-0">$ {{concert.EventPrice}}</p>
+          <span class="badge text-bg-dark">{{concert.EventStatus}}</span>
+        </div>
+      </div>
+</div>
+    <!-- Concert -->
+<div class="row">
+    <div class="col-md-12">
+    <div class="card my-3">
+        <div class="card-body">
+        <div class="media">
+            <img
+            class="align-self-start mr-3"
+            src="{{ concert.EventImage }}"
+            width="1000px"
+            />
+            <div class="media-body">
+            <small class="font-weight-bold text-muted"
+                >Time:{{concert.EventDate}}</small
+            >
+            <h5 class="mt-0">{{concert.EventName}}</h5>
+            <p><br />{{concert.EventInfo}}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<hr />
+<div class="container">
+<div class="row mt-5">
+    <div class="col-md-12">
+    <h1>Book concert tickets</h1>
+    <p>Edit the number of tickets required:</p>
+    {{render_form(form)}}
+    </div>
+</div>
+</div>
+
+{% endblock %}

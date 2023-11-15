@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}   
+      <div class="container">
+         <div class="card-group">
+            {% for concert in concerts %}
+            <div class="card mx-3">
+              <img
+                class="card-img-top"
+                src="{{ concert.EventImage }}"
+                alt="destination picture"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ concert.EventName }}</h5>
+                <p class="card-text">{{ concert.EventDesc }}</p>
+              </div>
+              <div class="card-footer">
+                <a
+                  href="{{ url_for('bookings.edit', id=concert.id) }}"
+                  class="btn btn-danger"
+                >
+                  Edit Booking
+                </a>
+                <a
+                  href="{{ url_for('bookings.delete', id=concert.id) }}"
+                  class="btn btn-danger"
+                >
+                  Cancel Booking
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+      </div>
+{% endblock %}

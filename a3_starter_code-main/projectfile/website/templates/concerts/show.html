@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% from 'bootstrap5/form.html' import render_form %}
+{% block content %}
+
+<div class="container">
+  <div class="row mt-5 mb-3">
+    <div class="col-md-12">
+      <div class="float-left">
+        <h1 class="mb-0">{{concert.EventName}}</h1>
+        <p>{{concert.EventDesc}}</p>
+      </div>
+
+      <div class="float-right text-right">
+        <p class="mb-0">$ {{concert.EventPrice}}</p>
+        <span class="badge text-bg-dark">{{status.EventStatus}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concert -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card my-3">
+        <div class="card-body">
+          <div class="media">
+            <img
+              class="align-self-start mr-3"
+              src="{{ concert.EventImage }}"
+              width="1000px"
+            />
+            <div class="media-body">
+              <small class="font-weight-bold text-muted"
+                >Date & Time: {{concert.EventDate}}</small
+              >
+              <small class="font-weight-bold text-muted"
+                >at {{concert.EventTime}}</small
+              >
+              <h5 class="mt-0">Event Status: {{status}}</h5>
+              <p><br />{{concert.EventInfo}}</p>
+              <a href="{{ url_for('bookings.book', id=concert.id) }}" class="btn btn-danger">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <!-- Comments -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Comments</h2>
+    </div>
+  </div>
+
+  <div class="row border-bottom">
+    {{ render_form(form,"/concerts/{0}/comment".format(concert.id)) }}
+    {% for comment in concert.Comments %}
+    <div class="col-md-12">
+      <b
+        >{{comment.user.UserName}}
+        <span class="ml-2 text-muted"
+          >{{ comment.created_at.strfime("%m/%d/%Y at %H:%M")}}</span
+        ></b
+      >
+      <p>{{comment.CommentContent}}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

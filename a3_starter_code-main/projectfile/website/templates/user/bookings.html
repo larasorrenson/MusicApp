@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <img src="{{ url_for('static', filename='image/header.jpeg') }}" class="img-fluid" style = "height: 200px; width: 100%;" alt="Header Image">
+    <h2 class="mb-4">My Bookings</h2>
+    <p class="lead">Here are your upcoming bookings. Manage and explore them below:</p>
+
+    {% if concerts %}
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Event Image</th>
+                <th scope="col">Event Name</th>
+                <th scope="col">Event Description</th>
+                <th scope="col">Number of Tickets</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for concert in concerts %}
+            <tr>
+                <td><img class="img-fluid" style="width: 100px; height: 100px;" src="{{ concert.EventImage }}" alt="Event Image" /></td>
+                <td>{{ concert.EventName }}</td>
+                <td>{{ concert.EventDesc }}</td>
+                <td>{{ tickets[loop.index-1]}}</td>
+                <td>
+                    <a href="{{ url_for('bookings.edit', id=concert.id) }}" class="btn btn-primary">Edit Booking</a>
+                    <a href="{{ url_for('bookings.delete', id=concert.id) }}" class="btn btn-danger">Cancel Booking</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No bookings available.</p>
+    {% endif %}
+</div>
+{% endblock %}

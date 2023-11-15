@@ -1,0 +1,138 @@
+.w {
+    width: 1200px;
+    margin: 30px auto;
+}
+
+.main {
+    margin-top: 50px;
+
+}
+
+.body {
+    background-color: white;
+}
+
+.footer {
+    height: 400px;
+    background-color: black;
+
+}
+
+.footer .w {
+    padding-top: 40px;
+}
+
+.Logobottom {
+    float: left;
+}
+
+.Logobottom p {
+    font-size: 20px;
+    color: #666;
+    margin: 25px 0 20px 0;
+}
+
+.Logobottom .app {
+    display: block;
+    width: 120px;
+    height: 35px;
+    border: 1px solid purple;
+    text-align: center;
+    line-height: 35px;
+    color: purple;
+}
+
+.link {
+    float: right;
+}
+
+.link dl {
+    float: left;
+    margin-left: 150px;
+}
+
+
+.link dl dt {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.link dl dd a {
+    color: white;
+    font-size: 15px;
+}
+
+.banner {
+    margin-top: 20px;
+    height: 420px;
+}
+
+.banner .w {
+    height: 450px;
+    background: url(../img/Music-5.png);
+}
+
+.top {
+    margin-top: 50px;
+}
+
+.top p {
+    font-size: 12px;
+}
+
+.bookticket {
+    width: 600px;
+    height: 250px;
+    background-color: black;
+    float: right;
+}
+
+.bookticket h4 {
+    margin-top: 50px;
+    margin-left: 40px;
+    color: white;
+}
+
+
+
+.bookticket span {
+    width: 130px;
+    height: 45px;
+    font-size: x-large;
+
+}
+
+.pic {
+    margin-top: 50px;
+}
+
+.pic img {
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+}
+
+.pic span {
+    font-size: 30px;
+}
+
+.pic button {
+    float: right;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+}
+
+.CreateEvent {
+    margin-top: 50px;
+}
+
+.CreateEvent textarea {
+    height: 350px;
+
+}
+
+.CreateEvent h6 {
+    float: right;
+}
