@@ -1,1 +1,1 @@
-# iab207_group_15
+Python web application for booking and creating music events
